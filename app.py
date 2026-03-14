@@ -12,12 +12,13 @@ st.markdown(
         background-color: #ffe6f0;
     }
 
-    .main-title {
-        text-align: center;
-        font-size: 60px;
-        color: #c2185b;
-        font-weight: bold;
-    }
+.main-title {
+    text-align: center;
+    font-size: 60px;
+    color: #c2185b;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
 
     .stButton>button {
         background-color: #f06292;
