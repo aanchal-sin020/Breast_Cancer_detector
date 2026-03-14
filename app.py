@@ -4,6 +4,7 @@ import numpy as np
 import pickle
 from sklearn.linear_model import LogisticRegression
 
+
 st.markdown(
     """
     <style>
@@ -13,7 +14,7 @@ st.markdown(
 
     .main-title {
         text-align: center;
-        font-size: 42px;
+        font-size: 60px;
         color: #c2185b;
         font-weight: bold;
     }
