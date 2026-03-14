@@ -4,6 +4,36 @@ import numpy as np
 import pickle
 from sklearn.linear_model import LogisticRegression
 
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #ffe6f0;
+    }
+
+    .main-title {
+        text-align: center;
+        font-size: 42px;
+        color: #c2185b;
+        font-weight: bold;
+    }
+
+    .stButton>button {
+        background-color: #f06292;
+        color: white;
+        border-radius: 8px;
+        border: none;
+        font-weight: bold;
+    }
+
+    .stButton>button:hover {
+        background-color: #ec407a;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Load dataset
 df = pd.read_csv("breast_cancer.csv")
 
@@ -14,7 +44,10 @@ y = df.iloc[:,-1]
 model = LogisticRegression(max_iter=5000)
 model.fit(X,y)
 
-st.title("Breast Cancer Detection System")
+st.markdown(
+    '<p class="main-title">🎗️ Breast Cancer Detection System</p>',
+    unsafe_allow_html=True
+)
 
 st.write("Predict whether a tumor is Benign or Malignant")
 
