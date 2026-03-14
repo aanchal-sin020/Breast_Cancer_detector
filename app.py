@@ -3,10 +3,8 @@ import pandas as pd
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 
-# --------- PAGE CONFIG ----------
 st.set_page_config(page_title="Breast Cancer Detector", layout="wide")
 
-# --------- CUSTOM CSS ----------
 st.markdown(
     """
     <style>
@@ -16,17 +14,17 @@ st.markdown(
 
     .main-title {
         text-align: center;
-        font-size: 70px !important;
+        font-size: 42px !important;
         color: #c2185b;
-        font-weight: 900;
-        margin-bottom: 10px;
+        font-weight: 800;
+        margin-bottom: 8px;
     }
 
     .subtitle {
         text-align: center;
-        font-size: 22px;
+        font-size: 20px;
         color: #444;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
     }
 
     .stButton>button {
@@ -47,7 +45,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# --------- TITLE ----------
 st.markdown(
     '<p class="main-title">🎗 Breast Cancer Detection System</p>',
     unsafe_allow_html=True
@@ -58,17 +55,14 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# --------- LOAD DATA ----------
 df = pd.read_csv("breast_cancer.csv")
 
-X = df.iloc[:,1:-1]
-y = df.iloc[:,-1]
+X = df.iloc[:, 1:-1]
+y = df.iloc[:, -1]
 
-# --------- TRAIN MODEL ----------
 model = LogisticRegression(max_iter=5000)
-model.fit(X,y)
+model.fit(X, y)
 
-# --------- SIDEBAR INPUT ----------
 st.sidebar.header("Input Features")
 
 input_data = []
@@ -82,11 +76,9 @@ for feature in X.columns:
     )
     input_data.append(val)
 
-input_array = np.array(input_data).reshape(1,-1)
+input_array = np.array(input_data).reshape(1, -1)
 
-# --------- PREDICTION ----------
 if st.button("Predict"):
-
     prediction = model.predict(input_array)
 
     if prediction[0] == 1:
